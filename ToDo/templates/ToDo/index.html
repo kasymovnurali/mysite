@@ -1,0 +1,29 @@
+{% extends './base.html' %}
+
+{% block header %}
+   <h1>TO DO</h1>
+{% endblock %}
+<link rel="stylesheet" type="text/css" href="ToDo/CSSstyle/CSSstyle.css">
+
+{% block content %}
+	{% for todo in todo %}
+		{% if todo.status == 'done' %}
+			<ul class="task-block">
+				<li class="item" style="color:green"><a href="{% url 'detail' pk=ToDo.pk %}">{{ todo.item }}</a></li>
+				<li class="status">{{ todo.status }}</li>
+			</ul>
+		{% endif %}
+		{% if todo.status == 'avtivate' %}
+			<ul class="item-block">
+				<li class="item" style="color: blue"><a href="{% url 'detail' pk=ToDo.pk %}"> {{ todo.item }}</a></li>
+				<li class="status">{{ todo.status }}</li>
+			</ul>
+		{% endif %}
+		{% if todo.status == 'canceled' %}
+			<ul class="item-block">
+				<li class="item" style="color: red"><a href="{% url 'detail' pk=ToDo.pk %}">{{ todo.item  }}</a></li>
+				<li class="status">{{ todo.status }}</li>
+			</ul>
+		{% endif %}
+	{% endfor %}
+{% endblock %}

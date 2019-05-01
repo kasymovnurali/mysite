@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	{% load static %}
+</head>
+<body>
+	<header>
+		{% block header %}
+    
+		{% endblock %}
+	</header>
+	<a href="{% url 'new' %}">Add new todo</a>
+	<main>
+		<a href="/">TODO APP</a>
+		{% block content %}
+    		
+		{% endblock %}
+	</main>
+
+</body>
+</html>
